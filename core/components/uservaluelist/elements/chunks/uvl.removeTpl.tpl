@@ -1,1 +1,1 @@
-<a href="[[+link]]">Remove from list</a>
+<a href="[[+link]]" title="[[%uvl.removefromlist]]">[[%uvl.removefromlist]]</a>

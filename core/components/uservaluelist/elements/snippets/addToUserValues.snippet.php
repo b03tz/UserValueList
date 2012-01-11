@@ -21,6 +21,10 @@
  *
  * @package userValueList
  */
+/* @var modX $modx
+ * @var array $scriptProperties
+ * @var userValueList $uservaluelist
+ */ 
 
 // Load the userValueList class
 $uservaluelist = $modx->getService('uservaluelist','userValueList',$modx->getOption('uservaluelist.core_path',null,$modx->getOption('core_path').'components/uservaluelist/').'model/uservaluelist/',$scriptProperties);
@@ -28,14 +32,14 @@ if (!($uservaluelist instanceof userValueList)) return '';
 
 // Receive properties
 $key = $modx->getOption('key', $scriptProperties, 'userValueList');
-$addKey = $modx->getOption('addKey', $scriptProperties, 'ulv_list');
 $value = $modx->getOption('value', $scriptProperties, $modx->resource->get('id'));
+if ($value == '') { $value = $modx->resource->get('id'); }
+$addKey = $modx->getOption('addKey', $scriptProperties, 'ulv_list');
+$addKey .= '_' . urlencode($value);
 $addTpl = $modx->getOption('addTpl', $scriptProperties, 'uvl.addTpl');
 $removeTpl = $modx->getOption('removeTpl', $scriptProperties, 'uvl.removeTpl');
+$anonymousTpl = $modx->getOption('anonymousTpl', $scriptProperties, 'uvl.anonymousTpl');
 
-if ($value == '') {
-	$value = $modx->resource->get('id');
-}
 
 // Get current value
 if ($uservaluelist->isLoggedIn()) {
@@ -46,7 +50,7 @@ if ($uservaluelist->isLoggedIn()) {
 	$currentValues = $uservaluelist->getUserListValue($key);
 } else { 
 	$currentValues = array();
-	return '';
+	return $uservaluelist->getChunk($anonymousTpl);
 }
 
 // Check if there's a $_GET string present

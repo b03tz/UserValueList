@@ -45,6 +45,8 @@ class userValueList {
      * @var userValueListController $controller
      */
     public $controller = null;
+    
+    public $chunks = array();
 
     function __construct(modX &$modx,array $config = array()) {
         $this->modx =& $modx;
@@ -87,10 +89,6 @@ class userValueList {
 
         return $output;
     }
-	
-	public function testFunction() {
-		return 'test';
-	}
 	
     /**
     * Gets a Chunk and caches it; also falls back to file-based templates
