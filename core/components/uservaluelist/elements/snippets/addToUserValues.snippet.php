@@ -32,15 +32,14 @@ if (!($uservaluelist instanceof userValueList)) return '';
 
 // Receive properties
 $key = $modx->getOption('key', $scriptProperties, 'userValueList');
-$addKey = $modx->getOption('addKey', $scriptProperties, 'ulv_list');
 $value = $modx->getOption('value', $scriptProperties, $modx->resource->get('id'));
+if ($value == '') { $value = $modx->resource->get('id'); }
+$addKey = $modx->getOption('addKey', $scriptProperties, 'ulv_list');
+$addKey .= '_' . urlencode($value);
 $addTpl = $modx->getOption('addTpl', $scriptProperties, 'uvl.addTpl');
 $removeTpl = $modx->getOption('removeTpl', $scriptProperties, 'uvl.removeTpl');
 $anonymousTpl = $modx->getOption('anonymousTpl', $scriptProperties, 'uvl.anonymousTpl');
 
-if ($value == '') {
-	$value = $modx->resource->get('id');
-}
 
 // Get current value
 if ($uservaluelist->isLoggedIn()) {
