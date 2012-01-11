@@ -28,3 +28,6 @@
  * @subpackage lexicon
  */
 $_lang['uservaluelist'] = 'User value list';
+$_lang['uvl.addtolist'] = 'Add to List';
+$_lang['uvl.removefromlist'] = 'Remove from List';
+$_lang['uvl.pleaselog'] = 'Please login to add to list';
