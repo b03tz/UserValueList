@@ -1,0 +1,5 @@
+UserValueList is a wishlist/favorites/remember tool for MODX Revolution, which will give users the opportunity to save resources or other objects. 
+ 
+UserValueList works pretty similar to "CookieList":http://github.com/Mark-H/CookieList except CookieList stores data in a cookie, whereas UserValueList stores the data in an extended field. UserValueList allows you to keep different lists (simply assign different keys), where CookieList only allows one cookie configuration per context.
+
+UserValueList has been developed in January 2012 by "ScherpOntwikkeling":http://www.scherpontwikkeling.nl for "Mark Hamstra":http://www.markhamstra.com.

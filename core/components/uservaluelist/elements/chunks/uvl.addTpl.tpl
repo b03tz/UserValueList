@@ -1,1 +1,1 @@
-<a href="[[+link]]">Add to list</a>
+<a href="[[+link]]" title="[[%uvl.addtolist]]">[[%uvl.addtolist]]</a>
